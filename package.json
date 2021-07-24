@@ -1,6 +1,6 @@
 {
   "name": "@staton/webbase-components",
-  "version": "1.0.5",
+  "version": "1.0.4",
   "description": "React Component Within Staton™ WebBase®",
   "main": "index.js",
   "scripts": {
