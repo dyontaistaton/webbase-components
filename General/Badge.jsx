@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import {Flex} from '../Layout';
 import PropTypes from 'prop-types'
-import config from '../../config/site.json'
 
 const Style = styled.div`
   position:relative;
@@ -14,7 +13,7 @@ const Style = styled.div`
     right:-10%;
     width:42%;
     height:42%;
-    background: ${props=>props.background||config.colors[0]};
+    background: ${props=>props.background||({theme})=>theme.colors[0]};
     border-radius:100%;
     color:${props=>props.fill||'white'};
   }

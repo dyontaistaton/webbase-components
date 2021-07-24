@@ -6,7 +6,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Body from './Body'
 import {Flex} from '../Layout';
-import config from '../../config/site.json'
+
 
 const Style = styled(Flex)`
   min-height:100vh;
@@ -14,7 +14,7 @@ const Style = styled(Flex)`
 
 const Page = props => {
   return (
-    <ThemeProvider theme={props.theme||config||{}}>
+    <ThemeProvider theme={props.theme}>
       <HelmetProvider>
         <Helmet>
           {props.helmet}

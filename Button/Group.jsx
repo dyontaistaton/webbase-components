@@ -4,12 +4,11 @@ import Button from './Button';
 import Icon from './Icon';
 import PropTypes from 'prop-types'
 import {Flex} from '../Layout';
-import config from '../../config/site.json'
 
 
 const Style = styled(Flex)`
   height:min-content;
-  background:${config.colors[0]};
+  background:${({theme})=>theme.colors[0]};
   ${props=>`background:${props.background};`}
   border-radius:0.6em;
   transition:0.3s ease;
@@ -26,10 +25,10 @@ const Style = styled(Flex)`
 
     // Coloring & Edging Toggles
     &[data-toggled]{
-      background-color:${config.colors[4]};
+      background-color:${({theme})=>theme.colors[4]};
 
       &[data-toggled=true]{
-        background-color:${config.colors[0]};
+        background-color:${({theme})=>theme.colors[0]};
       }
 
       &:first-child{
@@ -54,10 +53,10 @@ const Style = styled(Flex)`
     } 
 
     &:active {
-      color:${config.colors[4]};
+      color:${({theme})=>theme.colors[4]};
     
       svg{
-        fill:${config.colors[4]}; 
+        fill:${({theme})=>theme.colors[4]}; 
         transition:20ms ease; 
       }
       
@@ -77,10 +76,10 @@ const Style = styled(Flex)`
     &:active{
       transform:scale(1.01);
       transition:20ms ease;
-      background-color:${config.colors[4]}; 
+      background-color:${({theme})=>theme.colors[4]}; 
 
       > *{
-        color:${config.colors[3]};
+        color:${({theme})=>theme.colors[3]};
       }
     }
 

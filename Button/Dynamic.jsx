@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import {If} from '../Logic';
 import Button from './Button';
 import Loader from 'react-spinners/BarLoader';
-import config from '../../config/site.json';
 import PropTypes from 'prop-types'
 
 const Style=styled.div`
@@ -32,7 +31,7 @@ const Dynamic=props => {
     <Style data-loading={loading}>
       <Button {...props} fill={loading?'transparent':fill}/>
       <If value={loading}>
-        <Loader color={fill||config.colors[3]} width='80%' height='7px'/>
+        <Loader color={fill} width='80%' height='7px'/>
       </If>
     </Style>
   );

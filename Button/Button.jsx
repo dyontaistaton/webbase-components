@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import Flex from '../Layout/Flex';
 import {If} from '../Logic'
-import config from '../../config/site.json';
 import PropTypes from 'prop-types'; 
 import {Link} from 'react-router-dom';
 
@@ -14,9 +13,9 @@ const sizes={
 };
 
 export const Style=styled.button`
-  background:${config.colors[0]};
+  background:${({theme})=>theme.colors[0]};
   ${props=>`background:${props.background};`}
-  color:${config.colors[3]};
+  color:${({theme})=>theme.colors[3]};
   ${props=>`color:${props.fill};`} 
   ${props=>`width:${props.width};`} 
   cursor: pointer;
@@ -46,23 +45,23 @@ export const Style=styled.button`
   :active{
     transform:scale(1.01);
     transition:20ms ease;
-    background-color:${config.colors[4]};
+    background-color:${({theme})=>theme.colors[4]};
   }
   
   // If Button Is Not Toggled
   &[data-toggled=false]{
-    background-color:${config.colors[4]};
+    background-color:${({theme})=>theme.colors[4]};
     transition:100ms ease;
   }
 
   // If Button Is Toggled
   &[data-toggled=true]{
-    background-color:${config.colors[0]};
+    background-color:${({theme})=>theme.colors[0]};
   }
 
   // Disabled Button
   &[disabled]{
-    background:${config.colors[4]};
+    background:${({theme})=>theme.colors[4]};
     :hover:before{
     }
     :before{
@@ -86,7 +85,7 @@ export const Style=styled.button`
   
   // Button Icon
   svg{
-    fill:${config.colors[3]};
+    fill:${({theme})=>theme.colors[3]};
     ${props=>`fill:${props.fill};`} 
   }
 

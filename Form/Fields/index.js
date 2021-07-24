@@ -6,4 +6,3 @@ export {default as IconToggle} from './IconToggle';
 export {default as ToggleGroup} from './ToggleGroup';
 export {default as File} from './File'
 export {default as Style} from './Style'; 
-export * as Payments from './Payments'
