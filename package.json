@@ -1,0 +1,15 @@
+{
+  "name": "webbase-components",
+  "version": "1.0.0",
+  "description": "React Component Within Staton™ WebBase®",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "React",
+    "Components"
+  ],
+  "author": "Dyontai Staton",
+  "license": "MIT"
+}
