@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Flex, Grid} from '../../Layout';
+import { Flex, Grid } from '../../Layout';
 import PropTypes from 'prop-types';
 
 import Header from './Header';
@@ -42,7 +42,7 @@ export const Style = styled(Flex)`
 		// Modal Content Wrapper
 		> ${Grid} {
 			position: relative;
-			background-color: ${({theme}) => theme.colors[5]};
+			background-color: ${({ theme }) => theme.colors[5]};
 			width: min-content;
 			min-width: 237px;
 			min-height: 350px;
@@ -52,7 +52,7 @@ export const Style = styled(Flex)`
       `}
 			padding:20px;
 			border-radius: 25px;
-			color: ${({theme}) => theme.colors[3]};
+			color: ${({ theme }) => theme.colors[3]};
 			opacity: 0;
 			transition-delay: 200ms;
 			transition: ease 400ms;
@@ -95,67 +95,67 @@ export const Style = styled(Flex)`
 `;
 
 const POSITIONS = {
-	topMiddle: 'top-middle',
-	topLeft: 'top-left',
-	topRight: 'top-right',
-	bottomMiddle: 'bottom-middle',
-	bottomLeft: 'bottom-left',
-	bottomRight: 'bottom-right',
-	middleLeft: 'middle-left',
-	middleRight: 'middle-right',
-	center: 'center',
+  topMiddle: 'top-middle',
+  topLeft: 'top-left',
+  topRight: 'top-right',
+  bottomMiddle: 'bottom-middle',
+  bottomLeft: 'bottom-left',
+  bottomRight: 'bottom-right',
+  middleLeft: 'middle-left',
+  middleRight: 'middle-right',
+  center: 'center'
 };
 
 const getFlexProps = (position) => {
-	let flexProps = {
-		fill: true,
-	};
+  const flexProps = {
+    fill: true
+  };
 
-	if (position === POSITIONS.center) {
-		return {...flexProps, center: true};
-	}
-	if (position.startsWith('top')) {
-		flexProps.a = 'flex-start';
-	}
-	if (position.startsWith('bottom')) {
-		flexProps.a = 'flex-end';
-	}
-	if (position.startsWith('middle')) {
-		flexProps.a = 'center';
-	}
-	if (position.endsWith('middle')) {
-		flexProps.j = 'center';
-	}
-	if (position.endsWith('left')) {
-		flexProps.j = 'flex-start';
-	}
-	if (position.endsWith('right')) {
-		flexProps.j = 'flex-end';
-	}
+  if (position === POSITIONS.center) {
+    return { ...flexProps, center: true };
+  }
+  if (position.startsWith('top')) {
+    flexProps.a = 'flex-start';
+  }
+  if (position.startsWith('bottom')) {
+    flexProps.a = 'flex-end';
+  }
+  if (position.startsWith('middle')) {
+    flexProps.a = 'center';
+  }
+  if (position.endsWith('middle')) {
+    flexProps.j = 'center';
+  }
+  if (position.endsWith('left')) {
+    flexProps.j = 'flex-start';
+  }
+  if (position.endsWith('right')) {
+    flexProps.j = 'flex-end';
+  }
 
-	return flexProps;
+  return flexProps;
 };
 
 const Modal = (props) => {
-	let {show, onHide, position, children, wrapper} = props;
+  const { show, onHide, position, children, wrapper } = props;
 
-	let Wrapper = wrapper || 'div';
+  const Wrapper = wrapper || 'div';
 
-	const childrenProps = {
-		onHide,
-	};
-	const clonedChildren = React.Children.toArray(children).map((child) =>
-		React.cloneElement(child, {...child.props, ...childrenProps})
-	);
+  const childrenProps = {
+    onHide
+  };
+  const clonedChildren = React.Children.toArray(children).map((child) =>
+    React.cloneElement(child, { ...child.props, ...childrenProps })
+  );
 
-	return (
-		<Style {...props} data-show={show} {...getFlexProps(position)}>
-			<Wrapper {...props}>
-				<figure onClick={onHide} />
-				<Grid cr='auto 1fr auto'>{clonedChildren}</Grid>
-			</Wrapper>
-		</Style>
-	);
+  return (
+    <Style {...props} data-show={show} {...getFlexProps(position)}>
+      <Wrapper {...props}>
+        <figure onClick={onHide} />
+        <Grid cr='auto 1fr auto'>{clonedChildren}</Grid>
+      </Wrapper>
+    </Style>
+  );
 };
 
 Modal.style = Style;
@@ -166,20 +166,20 @@ Modal.Footer = Footer;
 Modal.Splash = Splash;
 
 Modal.propTypes = {
-	/** Is Modal Open ( Displayed ) Or Closed ( Hidden ) */
-	show: PropTypes.bool,
+  /** Is Modal Open ( Displayed ) Or Closed ( Hidden ) */
+  show: PropTypes.bool,
 
-	/** Event Callback, Ran When Modal Should Be Closed */
-	onHide: PropTypes.func,
+  /** Event Callback, Ran When Modal Should Be Closed */
+  onHide: PropTypes.func,
 
-	/** Position Of Modal Contents
+  /** Position Of Modal Contents
 	 * Ex: "top-left" or "bottom-middle"
 	 */
-	position: PropTypes.oneOf(Object.values(POSITIONS)),
+  position: PropTypes.oneOf(Object.values(POSITIONS))
 };
 
 Modal.defaultProps = {
-	position: 'center',
+  position: 'center'
 };
 
 export default Modal;

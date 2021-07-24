@@ -1,6 +1,6 @@
 {
   "name": "@staton/webbase-components",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React Component Library For Staton™ WebBase",
   "author": "Dyontai Staton",
   "license": "MIT",
@@ -13,15 +13,15 @@
   },
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
-    "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
+    "start": "microbundle-crl watch --no-compress --format modern,cjs", 
+    "prepare": "npm run lint & run-s build", 
+    "lint": "npx eslint src --fix --quiet",
     "test": "run-s test:unit test:lint test:build",
     "test:build": "run-s build",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
-    "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "npm publish"
   },
   "dependencies": {
     "styled-components": "5.3.0",
