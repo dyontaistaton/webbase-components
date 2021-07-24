@@ -1,1 +1,1 @@
-export * from './If';
+export {default as If} from './If';
