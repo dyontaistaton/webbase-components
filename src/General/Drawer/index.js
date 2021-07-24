@@ -1,28 +1,28 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Flex, Grid } from '../../Layout';
+import {Flex,Grid} from '../../Layout';
 
 import Header from './Header'
 import Body from './Body'
 import Footer from './Footer'
 
-const Style = styled(Flex)`
+const Style = styled(Flex) `
 
 `
 
 const POSITIONS = {
-  top: 'top',
-  left: 'left',
-  right: 'right',
-  bottom: 'bottom'
+  top:'top',
+  left:'left',
+  right:'right',
+  bottom:'bottom'
 }
 
 const getFlexProps = position => {
-  const flexProps = {
-    fill: true
+  let flexProps = {
+    fill:true
   }
 
-  switch (position) {
+  switch(position){
     case POSITIONS.top:break;
     default:break;
   }
@@ -36,12 +36,12 @@ const Drawer = props => {
     children
   } = props;
 
-  const Wrapper = wrapper || 'div';
+  const Wrapper = wrapper||'div';
 
   const childrenProps = {
     onHide
   }
-  const clonedChildren = React.Children.toArray(children).map(child => React.cloneElement(child, { ...child.props, ...childrenProps }))
+  const clonedChildren = React.Children.toArray(children).map(child=>React.cloneElement(child,{...child.props,...childrenProps})) 
 
   return (
     <Style>
