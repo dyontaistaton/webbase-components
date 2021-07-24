@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {Flex} from '../Layout';
 import {Icon as IconButton} from '../Button';
-import StatonLogo from '../src/Svg/StatonIcon';
+import StatonLogo from '../Svg/StatonIcon';
 import {FaUser, FaShoppingCart} from 'react-icons/fa';
 
 export const Style = styled.div`
